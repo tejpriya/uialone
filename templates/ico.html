@@ -1,0 +1,224 @@
+{% extends "templates/form-layouts-vertical.html" %}
+{% load static %}
+
+<!-- tile tag -->
+{% block title %}
+<title>icon</title>
+{% endblock %}
+
+{% block stylesheet  %} 
+<link rel="stylesheet" href="{% static 'assets/vendor/libs/bs-stepper/bs-stepper.css' %}" />
+<link rel="stylesheet" href="{% static 'assets/vendor/libs/bootstrap-select/bootstrap-select.css' %}" />
+<link rel="stylesheet" href="{% static 'assets/vendor/libs/formvalidation/dist/css/formValidation.min.css' %}" />
+{% endblock %}
+
+{% block nav %}
+
+{% endblock %}
+
+<!-- content tag -->
+{% block content %}
+<div class="layout-wrapper layout-content-navbar">
+  <div class="layout-container">
+<!-- Content wrapper -->
+<div class="content-wrapper">
+<!-- Content -->
+
+<div class="container-xxl flex-grow-1 container-p-y">
+<h4 class="py-3 breadcrumb-wrapper mb-4">
+<span class="text-muted fw-light">Image Annotation/</span>Import
+</h4>
+<!-- Default -->
+<div class="row">
+<div class="col-12">
+  
+</div>
+
+<!-- Default Wizard -->
+<div class="col-12 mb-4">
+ 
+  <div class="bs-stepper wizard-numbered mt-2">
+    <div class="bs-stepper-header">
+      <div class="step" data-target="#account-details">
+        <button type="button" class="step-trigger">
+          <span class="bs-stepper-circle">1</span>
+          <span class="bs-stepper-label">
+            <span class="bs-stepper-title">Import</span>
+          </span>
+        </button>
+      </div>
+      <div class="line"></div>
+      <div class="step" data-target="#personal-info">
+        <button type="button" class="step-trigger">
+          <span class="bs-stepper-circle">2</span>
+          <span class="bs-stepper-label">
+            <span class="bs-stepper-title">Training</span>
+          
+          </span>
+        </button>
+      </div>
+
+
+
+      <div class="line"></div>
+      <div class="step" data-target="#personal-info1">
+        <button type="button" class="step-trigger">
+          <span class="bs-stepper-circle">3</span>
+          <span class="bs-stepper-label">
+            <span class="bs-stepper-title">Replace</span>
+          
+          </span>
+        </button>
+      </div>
+
+
+
+     
+    </div>
+    <div class="bs-stepper-content">
+      <form onSubmit="return false"><br>
+        <!-- Account Details -->
+        <div id="account-details" class="content">
+          <div class="content-header mb-3">
+            <h6 class="mb-0">IMPORT FILE</h6>
+           
+          </div>
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <form>
+                <input type="file" id="file-input">
+                <button type="button" id="choose-file-btn"></button>
+              </form>
+             <select name="options">
+             <option value="xml">XML</option>
+             <option value="json">JSON</option>
+             <option value="txt">TXT</option>
+              </select>
+
+            </div>
+          
+
+            <div class="col-12 d-flex justify-content-between">
+              <button class="btn btn-label-secondary btn-prev" disabled>
+                <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
+                <span class="d-sm-inline-block d-none">Previous</span>
+              </button>
+              <button class="btn btn-primary btn-next">
+                <span class="d-sm-inline-block d-none">Next</span>
+                <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Personal Info -->
+        <div id="personal-info" class="content">
+          <div class="content-header mb-3">
+            <h6 class="mb-0"></h6>
+            </div>
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label class="form-label" for="first-name1">Training</label>
+              <p>give in percentage</p><input type="value">
+            </div>
+
+            <div class="col-sm-6">
+              <label class="form-label" for="last-name1">Validation</label>
+            <p>give in percentage</p> <input type="value" >
+            </div> 	  <br><br><br>
+
+            <div class="col-sm-6">
+              <label class="form-label" for="country1">Choose Model</label>
+              <select class="select2" id="country1">
+                <option label=" "></option>
+                <option>1</option>
+                <option>2</option>
+                
+                
+              </select>
+            
+            </div>
+            <div class="col-12 d-flex justify-content-between">
+              <button class="btn btn-primary btn-prev">
+                <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
+                <span class="d-sm-inline-block d-none">Previous</span>
+              </button>
+              <button class="btn btn-primary btn-next">
+                <span class="d-sm-inline-block d-none me-sm-1">Next</span>
+                <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
+              </button></div>
+      </div>
+    </div>
+ 
+      
+<!-- Personal Info -->
+
+<div id="personal-info1" class="content">
+  <div class="content-header mb-3">
+    <h6 class="mb-0"></h6>
+    </div>
+    <label class="form-label" for="username1">choose folder</label>
+    <input class="form-control" type="file" id="formFileMultiple" multiple />
+       <br>
+<label class="form-label" for="email1">choose class</label>
+     <br>
+    <select name="options">
+       <option value="ca">CAR</option>
+       <option value="tr">TRUCK</option>
+       <option value="two">TWO WHEELER</option>
+<option value="auto">AUTO RICKSHAW</option>
+       <option value="max">MULTI AXLE</option>
+       <option value="oth">OTHER</option>
+
+        </select>
+        <button class="btn btn-submit">
+          REPLACE</button>
+
+    <br><br>
+    <div class="col-12 d-flex justify-content-between">
+      <button class="btn btn-primary btn-prev">
+        <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
+        <span class="d-sm-inline-block d-none">Previous</span>
+      </button>
+      <button class="btn btn-success btn-submit">Submit</button>
+    </div>
+</div>
+</div>
+</div>
+
+
+</div>
+</form>
+</div>
+</div>
+
+</div>
+</div>
+
+
+</div>
+<!-- Content wrapper -->
+</div>
+<!-- / Layout page -->
+
+
+<!-- Overlay -->
+<div class="layout-overlay layout-menu-toggle"></div>
+
+<!-- Drag Target Area To SlideIn Menu On Small Screens -->
+<div class="drag-target"></div>
+
+<!-- / Layout wrapper -->
+
+
+
+ 
+{% endblock %}
+ 
+{% block script %}
+{% endblock %}
+
+
+
+{% block javascript %}
+
+{% endblock %}
